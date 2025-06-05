@@ -5,11 +5,8 @@
   <title>Park Access in Iowa – Final Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
@@ -50,12 +47,8 @@
     h1, h2 {
       color: #4C5C68;
     }
-    ul {
-      padding-left: 1.2rem;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.5rem; }
     iframe {
       width: 100%;
       height: 600px;
@@ -77,58 +70,83 @@
 
 <body>
 
+  <!-- Navigation -->
   <nav>
     <a href="#overview">Overview</a>
     <a href="#methods">Methods</a>
     <a href="#reflection">Reflection</a>
   </nav>
 
+  <!-- HERO + Project Purpose -->
   <header id="overview">
     <h1>Park Access in Iowa</h1>
     <p>Analyzing 10-Minute Walk Access by Census Tract</p>
   </header>
 
+  <!-- Section 1: Overview -->
   <section>
     <h2>Project Overview</h2>
-    <p>This project explores which communities in Iowa live within a 10-minute walk of a public park, using spatial data to analyze accessibility and equity. The analysis combines ACS census tract data with state park datasets to generate a meaningful visual assessment of park proximity.</p>
+    <p>This project explores which communities in Iowa live within a 10-minute walk of a public park. It combines spatial park data with ACS population estimates to visualize and evaluate equitable access to green space across census tracts.</p>
 
-    <h2>Interactive Map & Tableau Dashboard</h2>
-    <p>Explore the interactive visualization below.</p>
-    <iframe src="YOUR_TABLEAU_LINK_HERE"></iframe>
+    <!-- Embed 1 -->
+    <h3>Population by Census Tract</h3>
+    <iframe src="https://public.tableau.com/views/YourDashboard1Link" title="Population Map"></iframe>
+
+    <!-- Embed 2 -->
+    <h3>Park Locations</h3>
+    <iframe src="https://public.tableau.com/views/YourDashboard2Link" title="Park Map"></iframe>
+
+    <!-- Embed 3 -->
+    <h3>Parks with 10-Minute Buffers</h3>
+    <iframe src="https://public.tableau.com/views/YourDashboard3Link" title="10-Minute Buffer Map"></iframe>
+
+    <!-- Embed 4 -->
+    <h3>Park Access by Tract</h3>
+    <iframe src="https://public.tableau.com/views/YourDashboard4Link" title="Access/No Access Map"></iframe>
+
+    <!-- Embed 5 -->
+    <h3>Percent Population with Park Access</h3>
+    <iframe src="https://public.tableau.com/views/YourDashboard5Link" title="Percent Accessible Map"></iframe>
   </section>
 
+  <!-- Section 2: Methods and Findings -->
   <section id="methods">
     <h2>Data & Methodology</h2>
     <ul>
       <li><strong>Population data:</strong> 2022 ACS 5-Year Census Tract Estimates</li>
       <li><strong>Park data:</strong> Iowa Open Data Portal</li>
-      <li><strong>Software:</strong> R (tidycensus, sf), ArcGIS Pro, Tableau</li>
-      <li>Used spatial buffers to estimate 10-minute walk access to parks, based on tract centroids intersecting park service areas.</li>
+      <li><strong>Tools:</strong> R (tidycensus, sf), ArcGIS Pro, Tableau</li>
+      <li>Used spatial buffers to estimate 10-minute walk access to parks by checking which census tracts intersect buffer zones.</li>
     </ul>
 
     <h2>Key Findings</h2>
     <ul>
-      <li>Approximately XX% of tracts have access to a park within a 10-minute walk.</li>
-      <li>Access was lower in rural areas and some lower-income tracts in urban areas.</li>
-      <li>Policy attention may be warranted in tracts with high population but no nearby parks.</li>
+      <li>About XX% of tracts had park access within a 10-minute walk.</li>
+      <li>Access was higher in urbanized regions and significantly lower in rural or peripheral census tracts.</li>
+      <li>Population-weighted analysis revealed some dense tracts lacked access despite proximity to major municipalities.</li>
     </ul>
 
     <h2>Conclusion</h2>
-    <p>This analysis highlights both gaps and opportunities in park accessibility across Iowa. It demonstrates how spatial data can support equitable planning decisions that improve community well-being.</p>
+    <p>This project highlights key gaps in park accessibility and provides a model for how spatial data can inform equitable planning decisions at the local and regional level.</p>
   </section>
 
+  <!-- Section 3: Reflection and Footer -->
   <section id="reflection">
     <h2>Personal Reflection</h2>
-    <p>Throughout this project, I gained experience working with spatial data, translating raw census data into visual insights, and using Tableau to communicate complex findings. I also deepened my understanding of equity in urban planning, especially how access to green space impacts public health.</p>
+    <p>Working on this project helped me strengthen my spatial analysis skills using R and Tableau, while also deepening my understanding of environmental equity. I learned how to clean and merge spatial datasets, construct buffers, and communicate findings clearly through interactive visualizations.</p>
 
-    <!-- Optional photo -->
-    <img src="OPTIONAL_PHOTO.jpg" alt="Project Photo or Screenshot" class="photo">
+    <img src="OPTIONAL_PHOTO.jpg" alt="Project Visual or Photo" class="photo">
   </section>
 
   <footer>
     <p>Created by Ethan Aamodt – LA 5580 Final Project</p>
-    <p><a href="YOUR_GITHUB_LINK" target="_blank">View Code on GitHub</a> | <a href="YOUR_TABLEAU_LINK" target="_blank">Tableau Dashboard</a></p>
+    <p><a href="https://github.com/yourusername/yourrepo" target="_blank">View Code on GitHub</a> | 
+       <a href="https://public.tableau.com/profile/yourprofile" target="_blank">View Dashboards on Tableau Public</a></p>
   </footer>
+
+</body>
+</html>
+
 
 </body>
 </html>
