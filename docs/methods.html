@@ -129,13 +129,14 @@
         </ul>
       </li>
 
-      <li><strong>Intersect and Area-Weighted Access Estimate</strong>
+      <li><strong>Park Access Estimation</strong>
         <ul>
-          <li>Intersected the dissolved buffer with census tract boundaries using <code>st_intersection()</code>.</li>
-          <li>Calculated area-weighted population access using:</li>
-          <pre><code>pop_est = total_tract_pop * (intersect_area / tract_area)</code></pre>
-          <li>Computed percent access with:</li>
-          <pre><code>access_percent = pop_est / total_tract_pop</code></pre>
+          <li>Created 800-meter buffers around all public parks to simulate a 10-minute walking distance.</li>
+          <li>Dissolved overlapping buffers into a single polygon layer to represent total access coverage.</li>
+          <li>Used spatial intersection in R to overlay the buffer layer onto census tract boundaries.</li>
+          <li>Calculated the area of each intersected (accessible) portion per tract using <code>st_area()</code>.</li>
+          <li>Estimated percent of each tract’s area within the buffer zone, assuming even population distribution.</li>
+          <li>Multiplied that percent by the tract's population to estimate the number of residents with access.</li>
         </ul>
       </li>
 
