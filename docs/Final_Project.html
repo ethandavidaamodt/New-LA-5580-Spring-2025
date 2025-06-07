@@ -50,7 +50,7 @@
     ul { padding-left: 1.2rem; }
     li { margin-bottom: 0.5rem; }
     iframe {
-       width: 100%;
+      width: 100%;
       max-width: 100%;
       height: 600px;
       border: none;
@@ -71,244 +71,55 @@
 
 <body>
 
-  <!-- Navigation -->
+  <!-- Navigation (links to other standalone pages) -->
   <nav>
-    <a href="#overview">Overview</a>
-    <a href="#counties">County Parks</a>
-    <a href="#methods">Methods and Findings</a>
-    <a href="#findings">Findings</a>
+    <a href="Final_Project.html">Overview</a>
+    <a href="counties.html">County Parks</a>
+    <a href="methods.html">Methods & Findings</a>
+    <a href="findings.html">Findings</a>
   </nav>
 
   <!-- HERO + Project Purpose -->
-  <header id="overview">
+  <header>
     <h1>Park Access in Iowa</h1>
     <p>Analyzing 10-Minute Walk Access by Census Tract</p>
   </header>
 
-  <!-- Section 1: Overview -->
+  <!-- Section: Overview -->
   <section>
     <h2>Project Overview</h2>
     <p>This project explores which communities in Iowa live within a 10-minute walk of a public park. It combines spatial park data with ACS population estimates to visualize and evaluate equitable access to green space across census tracts.</p>
 
     <!-- Embed 1 -->
     <h3>Population Map</h3>
-<iframe 
-  src="https://public.tableau.com/views/CensusTractPopulationEstimatesSelectedCountiesinIowa/CensusTractPopulationEstimatesSelectedCountiesinIowa?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Census Tract Population Estimates">
-</iframe>
+    <iframe 
+      src="https://public.tableau.com/views/CensusTractPopulationEstimatesSelectedCountiesinIowa/CensusTractPopulationEstimatesSelectedCountiesinIowa?:showVizHome=no&:embed=true&:toolbar=yes" 
+      title="Census Tract Population Estimates">
+    </iframe>
 
     <!-- Embed 2 -->
     <h3>Park Locations Map</h3>
-<iframe 
-  src="https://public.tableau.com/shared/BPSKNN5WP?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Park Locations Map">
-</iframe>
+    <iframe 
+      src="https://public.tableau.com/shared/BPSKNN5WP?:showVizHome=no&:embed=true&:toolbar=yes" 
+      title="Park Locations Map">
+    </iframe>
 
     <!-- Embed 3 -->
     <h3>Park Access by Census Tract</h3>
-<iframe 
-  src="https://public.tableau.com/views/CensusTractswithParkAccessYesorNo/CensusTractswithParkAccessYesorNo?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Park Access by Census Tract">
-</iframe>
+    <iframe 
+      src="https://public.tableau.com/views/CensusTractswithParkAccessYesorNo/CensusTractswithParkAccessYesorNo?:showVizHome=no&:embed=true&:toolbar=yes" 
+      title="Park Access by Census Tract">
+    </iframe>
 
     <!-- Embed 4 -->
     <h3>Percent of Census Tract Population with Park Access</h3>
-<iframe 
-  src="https://public.tableau.com/views/PercentofTractPopulationwithParkAccess/PercentofTractPopulationwithParkAccess?:showVizHome=no&:embed=true&:toolbar=yes" 
-   style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Percent of Population with Park Access">
-</iframe>
-
+    <iframe 
+      src="https://public.tableau.com/views/PercentofTractPopulationwithParkAccess/PercentofTractPopulationwithParkAccess?:showVizHome=no&:embed=true&:toolbar=yes" 
+      title="Percent of Population with Park Access">
+    </iframe>
   </section>
 
-  <!-- Section 2: County Parks -->
-  <section id="counties">
-  <h2>County Park Dashboards</h2>
-  <p>Explore interactive dashboards showing the individual parks used in the project's analysis.</p>
-
-  <!-- Dashboard 1 -->
-  <h3>Polk County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-PolkCountyIowa/PolkCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Polk County Parks Map">
-</iframe>
-
-  <!-- Dashboard 2 -->
-  <h3>Linn County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-LinnCountyIowa/LinnCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Linn County Parks Map">
-</iframe>
-
-  <!-- Dashboard 3 -->
-  <h3>Scott County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-ScottCountyIowa/ScottCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Scott County Parks Map">
-</iframe>
-
-  <!-- Dashboard 4 -->
-  <h3>Johnson County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-JohnsonCountyIowa/JohnsonCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-   style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Johnson County Parks Map">
-</iframe>
-
-  <!-- Dashboard 5 -->
-  <h3>Black Hawk County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-BlackHawkCountyIowa/BlackHawkCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-   style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Black Hawk County Parks Map">
-</iframe>
-
-  <!-- Dashboard 6 -->
-  <h3>Floyd County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-FloydCountyIowa/FloydCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Floyd County Parks Map">
-</iframe>
-
-  <!-- Dashboard 7 -->
-  <h3>Page County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-PageCountyIowa/PageCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Page County Parks Map">
-</iframe>
-
-  <!-- Dashboard 8 -->
-  <h3>Hamilton County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-HamiltonCountyIowa/HamiltonCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Hamilton County Parks Map">
-</iframe>
-
-  <!-- Dashboard 9 -->
-  <h3>Harrison County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-HarrisonCountyIowa/HarrisonCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Harrison County Parks Map">
-</iframe>
-
-  <!-- Dashboard 10 -->
-  <h3>Mills County Parks</h3>
-<iframe 
-  src="https://public.tableau.com/views/Parks-MillsCountyIowa/MillsCounty?:showVizHome=no&:embed=true&:toolbar=yes" 
-    style="width: 100%; max-width: 100%; height: 600px; border: none;" 
-  title="Mills County Parks Map">
-</iframe>
-
-  </section>
-
-  <!-- Section 3: Methods and Findings -->
-  <section id="methods">
-  <h2>Data & Methodology</h2>
-  <ul>
-    <li><strong>Population data:</strong> 2022 ACS 5-Year Census Tract Estimates via <code>tidycensus</code> in R</li>
-    <li><strong>Park data:</strong> Iowa Open Data Portal (GeoJSON format, cleaned in ArcGIS Pro and R)</li>
-    <li><strong>Tools Used:</strong> R (tidycensus, sf), ArcGIS Pro, Tableau</li>
-  </ul>
-
-  <h3>🗺️ Study Area</h3>
-  <p>Ten Iowa counties were selected to represent both high and moderate population densities, allowing comparison of access patterns across a range of communities:</p>
-  <ul>
-    <li><strong>Top 5 by Population:</strong> Polk, Linn, Scott, Johnson, Black Hawk</li>
-    <li><strong>Middle 5 by Population:</strong> Floyd, Page, Hamilton, Harrison, Mills</li>
-  </ul>
-
-  <h3>🛠️ Workflow Summary</h3>
-  <ol>
-    <li><strong>Data Preparation & Filtering</strong>
-      <ul>
-        <li>Filtered Iowa parks dataset in ArcGIS Pro to include only selected counties.</li>
-        <li>Used spatial select and attribute queries to retain only qualifying park types (e.g., city parks, recreation areas).</li>
-        <li>Exported filtered dataset as <code>parks_fixed.geojson</code>.</li>
-        <li>Retrieved census tract geometries and population estimates in R.</li>
-      </ul>
-    </li>
-
-    <li><strong>Coordinate System Alignment</strong>
-      <ul>
-        <li>Transformed all spatial data to UTM Zone 15N (EPSG:26915) for accurate distance and area calculations.</li>
-      </ul>
-    </li>
-
-    <li><strong>Walk Buffer Creation</strong>
-      <ul>
-        <li>Generated 800-meter buffers around each park using <code>st_buffer()</code> to simulate 10-minute walking distances.</li>
-      </ul>
-    </li>
-
-    <li><strong>Buffer Dissolve (Unified Service Area)</strong>
-      <ul>
-        <li>Combined overlapping buffers into a single polygon using <code>st_union()</code> to prevent double-counting.</li>
-      </ul>
-    </li>
-
-    <li><strong>Intersect and Area-Weighted Access Estimate</strong>
-      <ul>
-        <li>Intersected the dissolved buffer with census tract boundaries using <code>st_intersection()</code>.</li>
-        <li>Calculated area-weighted population access using:
-          <pre><code>pop_est = total_tract_pop * (intersect_area / tract_area)</code></pre>
-        </li>
-        <li>Computed percent access with:
-          <pre><code>access_percent = pop_est / total_tract_pop</code></pre>
-        </li>
-      </ul>
-    </li>
-
-    <li><strong>Output and Visualization</strong>
-      <ul>
-        <li>Exported enriched tract data as <code>selected_iowa_tract_population_weighted.geojson</code>.</li>
-        <li>Included new fields:
-          <ul>
-            <li><code>pop_est</code>: Estimated number of people with park access</li>
-            <li><code>access_percent</code>: Proportion of each tract with access</li>
-          </ul>
-        </li>
-        <li>Visualized results in Tableau using:
-          <ul>
-            <li>Census tracts (colored by population or access %)</li>
-            <li>Park locations</li>
-            <li>10-minute walk buffer overlays</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ol>
-
-    <h3>📉 Limitations</h3>
-  <ul>
-    <li><strong>Euclidean Buffers:</strong> 800m buffer assumes straight-line distance, not accounting for walkable paths or barriers.</li>
-    <li><strong>Population Uniformity Assumption:</strong> Assumes even population distribution within tracts, which may oversimplify conditions in large or irregular areas.</li>
-    <li><strong>Park Quality:</strong> Analysis does not consider park amenities, entrances, or park size — only proximity.</li>
-  </ul>
-</section>
-
-  <section id="findings">
-    <h2>Key Findings</h2>
-    <ul>
-      <li>About XX% of tracts had park access within a 10-minute walk.</li>
-      <li>Access was higher in urbanized regions and significantly lower in rural or peripheral census tracts.</li>
-      <li>Population-weighted analysis revealed some dense tracts lacked access despite proximity to major municipalities.</li>
-    </ul>
-
-    <h2>Conclusion</h2>
-    <p>This project highlights key gaps in park accessibility and provides a model for how spatial data can inform equitable planning decisions at the local and regional level.</p>
-  </section>
-
-
+  <!-- Footer -->
   <footer>
     <p>Created by Ethan Aamodt – LA 5580 Final Project</p>
     <p><a href="https://github.com/yourusername/yourrepo" target="_blank">View Code on GitHub</a> | 
@@ -317,8 +128,3 @@
 
 </body>
 </html>
-
-
-</body>
-</html>
-
