@@ -75,8 +75,8 @@
   <nav>
     <a href="#overview">Overview</a>
     <a href="#counties">County Parks</a>
-    <a href="#methods">Methods</a>
-    <a href="#reflection">Reflection</a>
+    <a href="#methods">Methods and Findings</a>
+    <a href="#findings">Findings</a>
   </nav>
 
   <!-- HERO + Project Purpose -->
@@ -213,14 +213,90 @@
 
   <!-- Section 3: Methods and Findings -->
   <section id="methods">
-    <h2>Data & Methodology</h2>
-    <ul>
-      <li><strong>Population data:</strong> 2022 ACS 5-Year Census Tract Estimates</li>
-      <li><strong>Park data:</strong> Iowa Open Data Portal</li>
-      <li><strong>Tools:</strong> R (tidycensus, sf), ArcGIS Pro, Tableau</li>
-      <li>Used spatial buffers to estimate 10-minute walk access to parks by checking which census tracts intersect buffer zones.</li>
-    </ul>
+  <h2>Data & Methodology</h2>
+  <ul>
+    <li><strong>Population data:</strong> 2022 ACS 5-Year Census Tract Estimates via <code>tidycensus</code> in R</li>
+    <li><strong>Park data:</strong> Iowa Open Data Portal (GeoJSON format, cleaned in ArcGIS Pro and R)</li>
+    <li><strong>Tools Used:</strong> R (tidycensus, sf), ArcGIS Pro, Tableau</li>
+  </ul>
 
+  <h3>🗺️ Study Area</h3>
+  <p>Ten Iowa counties were selected to represent both high and moderate population densities, allowing comparison of access patterns across a range of communities:</p>
+  <ul>
+    <li><strong>Top 5 by Population:</strong> Polk, Linn, Scott, Johnson, Black Hawk</li>
+    <li><strong>Middle 5 by Population:</strong> Floyd, Page, Hamilton, Harrison, Mills</li>
+  </ul>
+
+  <h3>🛠️ Workflow Summary</h3>
+  <ol>
+    <li><strong>Data Preparation & Filtering</strong>
+      <ul>
+        <li>Filtered Iowa parks dataset in ArcGIS Pro to include only selected counties.</li>
+        <li>Used spatial select and attribute queries to retain only qualifying park types (e.g., city parks, recreation areas).</li>
+        <li>Exported filtered dataset as <code>parks_fixed.geojson</code>.</li>
+        <li>Retrieved census tract geometries and population estimates in R.</li>
+      </ul>
+    </li>
+
+    <li><strong>Coordinate System Alignment</strong>
+      <ul>
+        <li>Transformed all spatial data to UTM Zone 15N (EPSG:26915) for accurate distance and area calculations.</li>
+      </ul>
+    </li>
+
+    <li><strong>Walk Buffer Creation</strong>
+      <ul>
+        <li>Generated 800-meter buffers around each park using <code>st_buffer()</code> to simulate 10-minute walking distances.</li>
+      </ul>
+    </li>
+
+    <li><strong>Buffer Dissolve (Unified Service Area)</strong>
+      <ul>
+        <li>Combined overlapping buffers into a single polygon using <code>st_union()</code> to prevent double-counting.</li>
+      </ul>
+    </li>
+
+    <li><strong>Intersect and Area-Weighted Access Estimate</strong>
+      <ul>
+        <li>Intersected the dissolved buffer with census tract boundaries using <code>st_intersection()</code>.</li>
+        <li>Calculated area-weighted population access using:
+          <pre><code>pop_est = total_tract_pop * (intersect_area / tract_area)</code></pre>
+        </li>
+        <li>Computed percent access with:
+          <pre><code>access_percent = pop_est / total_tract_pop</code></pre>
+        </li>
+      </ul>
+    </li>
+
+    <li><strong>Output and Visualization</strong>
+      <ul>
+        <li>Exported enriched tract data as <code>selected_iowa_tract_population_weighted.geojson</code>.</li>
+        <li>Included new fields:
+          <ul>
+            <li><code>pop_est</code>: Estimated number of people with park access</li>
+            <li><code>access_percent</code>: Proportion of each tract with access</li>
+          </ul>
+        </li>
+        <li>Visualized results in Tableau using:
+          <ul>
+            <li>Census tracts (colored by population or access %)</li>
+            <li>Park locations</li>
+            <li>10-minute walk buffer overlays</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ol>
+
+    <h3>📉 Limitations</h3>
+  <ul>
+    <li><strong>Euclidean Buffers:</strong> 800m buffer assumes straight-line distance, not accounting for walkable paths or barriers.</li>
+    <li><strong>Population Uniformity Assumption:</strong> Assumes even population distribution within tracts, which may oversimplify conditions in large or irregular areas.</li>
+    <li><strong>Park Quality:</strong> Analysis does not consider park amenities, entrances, or park size — only proximity.</li>
+  </ul>
+</section>
+
+  <section id="findings">
     <h2>Key Findings</h2>
     <ul>
       <li>About XX% of tracts had park access within a 10-minute walk.</li>
@@ -232,13 +308,6 @@
     <p>This project highlights key gaps in park accessibility and provides a model for how spatial data can inform equitable planning decisions at the local and regional level.</p>
   </section>
 
-  <!-- Section 4: Reflection and Footer -->
-  <section id="reflection">
-    <h2>Personal Reflection</h2>
-    <p>Working on this project helped me strengthen my spatial analysis skills using R and Tableau, while also deepening my understanding of environmental equity. I learned how to clean and merge spatial datasets, construct buffers, and communicate findings clearly through interactive visualizations.</p>
-
-    <img src="OPTIONAL_PHOTO.jpg" alt="Project Visual or Photo" class="photo">
-  </section>
 
   <footer>
     <p>Created by Ethan Aamodt – LA 5580 Final Project</p>
