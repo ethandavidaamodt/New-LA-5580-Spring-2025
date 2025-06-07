@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>County Park Dashboards – Park Access in Iowa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #4C5C68;
+      color: white;
+      padding: 1rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header {
+      background: linear-gradient(to right, #7CA982, #4C5C68);
+      color: white;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #4C5C68;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.5rem; }
+    iframe {
+      width: 100%;
+      max-width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .photo {
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="Final_Project.html">Overview</a>
+    <a href="counties.html">County Parks</a>
+    <a href="methods.html">Methods & Findings</a>
+    <a href="findings.html">Findings</a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>County Park Dashboards</h1>
+    <p>Interactive Maps of Park Locations by County</p>
+  </header>
+
+  <!-- County Parks Section -->
+  <section>
+    <h2>County Park Dashboards</h2>
+    <p>Explore interactive dashboards showing the individual parks used in the project's analysis.</p>
+
+    <h3>Polk County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-PolkCountyIowa/PolkCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Polk County Parks Map"></iframe>
+
+    <h3>Linn County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-LinnCountyIowa/LinnCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Linn County Parks Map"></iframe>
+
+    <h3>Scott County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-ScottCountyIowa/ScottCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Scott County Parks Map"></iframe>
+
+    <h3>Johnson County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-JohnsonCountyIowa/JohnsonCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Johnson County Parks Map"></iframe>
+
+    <h3>Black Hawk County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-BlackHawkCountyIowa/BlackHawkCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Black Hawk County Parks Map"></iframe>
+
+    <h3>Floyd County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-FloydCountyIowa/FloydCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Floyd County Parks Map"></iframe>
+
+    <h3>Page County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-PageCountyIowa/PageCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Page County Parks Map"></iframe>
+
+    <h3>Hamilton County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-HamiltonCountyIowa/HamiltonCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Hamilton County Parks Map"></iframe>
+
+    <h3>Harrison County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-HarrisonCountyIowa/HarrisonCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Harrison County Parks Map"></iframe>
+
+    <h3>Mills County Parks</h3>
+    <iframe src="https://public.tableau.com/views/Parks-MillsCountyIowa/MillsCounty?:showVizHome=no&:embed=true&:toolbar=yes" title="Mills County Parks Map"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Created by Ethan Aamodt – LA 5580 Final Project</p>
+    <p><a href="https://github.com/yourusername/yourrepo" target="_blank">View Code on GitHub</a> | 
+       <a href="https://public.tableau.com/profile/yourprofile" target="_blank">View Dashboards on Tableau Public</a></p>
+  </footer>
+
+</body>
+</html>
