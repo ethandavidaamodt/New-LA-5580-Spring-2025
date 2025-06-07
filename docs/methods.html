@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Methods & Findings – Park Access in Iowa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #4C5C68;
+      color: white;
+      padding: 1rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header {
+      background: linear-gradient(to right, #7CA982, #4C5C68);
+      color: white;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: #4C5C68;
+    }
+    ul, ol {
+      padding-left: 1.2rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    pre, code {
+      background-color: #f0f0f0;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="Final_Project.html">Overview</a>
+    <a href="counties.html">County Parks</a>
+    <a href="methods.html">Methods & Findings</a>
+    <a href="findings.html">Findings</a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Data & Methodology</h1>
+    <p>Workflow Summary for Park Access Analysis</p>
+  </header>
+
+  <!-- Section: Methods -->
+  <section>
+    <h2>Data Sources</h2>
+    <ul>
+      <li><strong>Population data:</strong> 2022 ACS 5-Year Census Tract Estimates via <code>tidycensus</code> in R</li>
+      <li><strong>Park data:</strong> Iowa Open Data Portal (GeoJSON format, cleaned in ArcGIS Pro and R)</li>
+      <li><strong>Tools Used:</strong> R (tidycensus, sf), ArcGIS Pro, Tableau</li>
+    </ul>
+
+    <h3>🗺️ Study Area</h3>
+    <p>Ten Iowa counties were selected to represent both high and moderate population densities, allowing comparison of access patterns across a range of communities:</p>
+    <ul>
+      <li><strong>Top 5 by Population:</strong> Polk, Linn, Scott, Johnson, Black Hawk</li>
+      <li><strong>Middle 5 by Population:</strong> Floyd, Page, Hamilton, Harrison, Mills</li>
+    </ul>
+
+    <h3>🛠️ Workflow Summary</h3>
+    <ol>
+      <li><strong>Data Preparation & Filtering</strong>
+        <ul>
+          <li>Filtered Iowa parks dataset in ArcGIS Pro to include only selected counties.</li>
+          <li>Used spatial select and attribute queries to retain only qualifying park types (e.g., city parks, recreation areas).</li>
+          <li>Exported filtered dataset as <code>parks_fixed.geojson</code>.</li>
+          <li>Retrieved census tract geometries and population estimates in R.</li>
+        </ul>
+      </li>
+
+      <li><strong>Coordinate System Alignment</strong>
+        <ul>
+          <li>Transformed all spatial data to UTM Zone 15N (EPSG:26915) for accurate distance and area calculations.</li>
+        </ul>
+      </li>
+
+      <li><strong>Walk Buffer Creation</strong>
+        <ul>
+          <li>Generated 800-meter buffers around each park using <code>st_buffer()</code> to simulate 10-minute walking distances.</li>
+        </ul>
+      </li>
+
+      <li><strong>Buffer Dissolve (Unified Service Area)</strong>
+        <ul>
+          <li>Combined overlapping buffers into a single polygon using <code>st_union()</code> to prevent double-counting.</li>
+        </ul>
+      </li>
+
+      <li><strong>Intersect and Area-Weighted Access Estimate</strong>
+        <ul>
+          <li>Intersected the dissolved buffer with census tract boundaries using <code>st_intersection()</code>.</li>
+          <li>Calculated area-weighted population access using:</li>
+          <pre><code>pop_est = total_tract_pop * (intersect_area / tract_area)</code></pre>
+          <li>Computed percent access with:</li>
+          <pre><code>access_percent = pop_est / total_tract_pop</code></pre>
+        </ul>
+      </li>
+
+      <li><strong>Output and Visualization</strong>
+        <ul>
+          <li>Exported enriched tract data as <code>selected_iowa_tract_population_weighted.geojson</code>.</li>
+          <li>Included new fields:
+            <ul>
+              <li><code>pop_est</code>: Estimated number of people with park access</li>
+              <li><code>access_percent</code>: Proportion of each tract with access</li>
+            </ul>
+          </li>
+          <li>Visualized results in Tableau using:
+            <ul>
+              <li>Census tracts (colored by population or access %)</li>
+              <li>Park locations</li>
+              <li>10-minute walk buffer overlays</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>📉 Limitations</h3>
+    <ul>
+      <li><strong>Euclidean Buffers:</strong> 800m buffer assumes straight-line distance, not accounting for walkable paths or barriers.</li>
+      <li><strong>Population Uniformity Assumption:</strong> Assumes even population distribution within tracts, which may oversimplify conditions in large or irregular areas.</li>
+      <li><strong>Park Quality:</strong> Analysis does not consider park amenities, entrances, or park size — only proximity.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Created by Ethan Aamodt – LA 5580 Final Project</p>
+    <p><a href="https://github.com/yourusername/yourrepo" target="_blank">View Code on GitHub</a> | 
+       <a href="https://public.tableau.com/profile/yourprofile" target="_blank">View Dashboards on Tableau Public</a></p>
+  </footer>
+
+</body>
+</html>
